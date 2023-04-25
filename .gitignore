@@ -71,3 +71,5 @@
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,c++,git
 resource/filter.py
+
+.vscode/settings.json
