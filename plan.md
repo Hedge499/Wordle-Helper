@@ -84,11 +84,11 @@ set boolean to false &rarr; while loop ends.
 
 ## Variables
 
-- List: containing wordlist
-- map: containing letters with position in word
-- List: containing letters without position in word
-- List: containing letters not in word
-- Boolean: keep program(while loop) running till exit
+- List wordlist: containing wordlist
+- map lettersWithPosition: containing letters with position in word
+- List lettersWithoutPosition: containing letters without position in word
+- List lettersNotInWord: containing letters not in word
+- Boolean running: keep program(while loop) running till exit
 
 ## Loop
 
