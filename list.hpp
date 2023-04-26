@@ -8,4 +8,4 @@
 std::list<std::string> loadWordlistFromFile();
 std::map<char, int> createLetterCount(std::list<std::string>);
 
-#endif WORDLEHELPER_LIST_HPP
+#endif
