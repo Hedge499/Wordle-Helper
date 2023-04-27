@@ -5,7 +5,8 @@
   - [Load Wordlist](#load-wordlist)
   - [Create Letter Count](#create-letter-count)
 - [wordle](#wordle)
-  - [Filter Wordlist](#filter-wordlist)
+  - [Filter Wordlist by helpful next words](#filter-wordlist-by-helpful-next-words)
+  - [Filter Wordlist by potential Answers](#filter-wordlist-by-potential-answers)
   - [Answer](#answer)
   - [next Word](#next-word)
 - [main](#main)
@@ -36,12 +37,6 @@ A wordlist containing 479k English words from https://github.com/dwyl/english-wo
 - return map
 
 # wordle
-
-## Filter Wordlist
-
-- words with Letters in the right position stay
-- words without known letters get filtered out
-- words containing eliminated letters get filtered out
 
 ## Answer
 
