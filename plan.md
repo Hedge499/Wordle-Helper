@@ -4,15 +4,13 @@
 - [Wordlist](#wordlist)
   - [Load Wordlist](#load-wordlist)
   - [Create Letter Count](#create-letter-count)
-- [Input](#input)
-  - [Command Line](#command-line)
-    - [Filter Wordlist](#filter-wordlist)
-    - [Answer](#answer)
-    - [next Word](#next-word)
-    - [add information](#add-information)
-    - [exit](#exit)
-  - [Gui (Later)](#gui-later)
-- [main()](#main)
+- [wordle](#wordle)
+  - [Filter Wordlist](#filter-wordlist)
+  - [Answer](#answer)
+  - [next Word](#next-word)
+- [main](#main)
+  - [add information](#add-information)
+  - [exit](#exit)
   - [Variables](#variables)
   - [Loop](#loop)
 
@@ -37,23 +35,21 @@ A wordlist containing 479k English words from https://github.com/dwyl/english-wo
 - add +1 for each letter in the word to the map
 - return map
 
-# Input
+# wordle
 
-## Command Line
-
-### Filter Wordlist
+## Filter Wordlist
 
 - words with Letters in the right position stay
 - words without known letters get filtered out
 - words containing eliminated letters get filtered out
 
-### Answer
+## Answer
 
 - header: returns void, params: letters with position in word, letters without position in word, letters not in word and the wordlist
 - [filter Wordlist](#filter-wordlist)
 - print remaining list 
 
-### next Word
+## next Word
 
 - header: return void, params: letters with position in word, letters without position in word, letters not in word and the wordlist
 - variables:
@@ -68,19 +64,17 @@ A wordlist containing 479k English words from https://github.com/dwyl/english-wo
   - other `value * 1`
 - print the 3 words saved in variables with the highest calculated values
 
-### add information
+# main
+
+## add information
 
 - letters with position in word
 - letters without position in word
 - letters not in word
-
-### exit
+  
+## exit
 
 set boolean to false &rarr; while loop ends.
-
-## Gui (Later)
-
-# main()
 
 ## Variables
 
