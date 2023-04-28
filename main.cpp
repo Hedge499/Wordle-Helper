@@ -26,7 +26,7 @@ std::ostream &operator<<(std::ostream &os, const std::map<char, int> &map)
 {
     for (auto const &[key, val] : map)
     {
-        os << key << val << "\n";
+        os << key << " " << val << "\n";
     }
     return os;
 }

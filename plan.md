@@ -41,16 +41,15 @@ A wordlist containing 479k English words from https://github.com/dwyl/english-wo
 ## Answer
 
 - header: returns void, params: letters with position in word, letters without position in word, letters not in word and the wordlist
-- [filter Wordlist](#filter-wordlist)
+- filter Wordlist
 - print remaining list 
 
 ## next Word
 
 - header: return void, params: letters with position in word, letters without position in word, letters not in word and the wordlist
 - variables:
-  - top 3 words 
-- [filter wordlist](#filter-wordlist)
-- create count [map](#create-letter-count) with filtered wordlist
+  - top 3 words
+- create count [map](#create-letter-count) with wordlist
 - iterate through wordlist
 - give each word a value and save them in a variable if the value is higher than any value of the previous saved word
   - letter with know position in word `value * 0`

@@ -1,10 +1,64 @@
 #include "wordle.hpp"
+#include <algorithm>
 
 // creates a list of answers for a wordle round based on the given information
 // the more information the less potential answers
 // returns a list of answers
 std::list<std::string> getAnswer(std::map<char, int> lettersWithPosition, std::list<char> lettersWithoutPosition, std::list<char> lettersNotInWord, std::list<std::string> wordlist)
 {
+    // all words that can be the answer to the wordle quiz
+    std::list<std::string> answers{};
+
+    // filter out words that can not be the answer
+    for (std::string const word : wordlist)
+    {
+        // is the word still viable as an answer
+        bool fit{true};
+
+        // check wether the word has the right letters at the right position
+        for (auto const &[letter, pos] : lettersWithPosition)
+        {
+            if (word[pos] != letter)
+            {
+                fit = false;
+                break;
+            }
+        }
+
+        // if the word is still a viable answer, check if the word contains all the necessary letters.
+        if (fit)
+        {
+            for (char const &letter : lettersWithoutPosition)
+            {
+                if (std::find(word.begin(), word.end(), letter) == word.end())
+                {
+                    fit = false;
+                    break;
+                }
+            }
+
+            // if the word is still a viable answer, check that the word does not contain any letters that are not in the answer.
+            if (fit)
+            {
+                for (char const &letter : lettersNotInWord)
+                {
+                    if (std::find(word.begin(), word.end(), letter) != word.end())
+                    {
+                        fit = false;
+                        break;
+                    }
+                }
+
+                // if the word is still a viable answer, push the word into the answer list
+                if (fit)
+                {
+                    answers.push_back(word);
+                }
+            }
+        }
+    }
+
+    return answers;
 }
 
 // chooses three words a best next word in an wordle round
