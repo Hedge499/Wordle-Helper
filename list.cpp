@@ -14,7 +14,7 @@ std::list<std::string> loadWordlistFromFile()
 {
     std::list<std::string> wordlist{};
 
-    std::ifstream wordlistFile("resource/wordlist.txt");
+    std::ifstream wordlistFile("wordlist.txt");
     std::string line{};
     while (std::getline(wordlistFile, line))
     {
