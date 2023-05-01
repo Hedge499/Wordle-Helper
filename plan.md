@@ -5,8 +5,6 @@
   - [Load Wordlist](#load-wordlist)
   - [Create Letter Count](#create-letter-count)
 - [wordle](#wordle)
-  - [Filter Wordlist by helpful next words](#filter-wordlist-by-helpful-next-words)
-  - [Filter Wordlist by potential Answers](#filter-wordlist-by-potential-answers)
   - [Answer](#answer)
   - [next Word](#next-word)
 - [main](#main)

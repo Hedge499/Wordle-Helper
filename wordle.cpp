@@ -1,6 +1,7 @@
 #include "wordle.hpp"
 #include "list.hpp"
 #include <algorithm>
+#include <set>
 
 // creates a list of answers for a wordle round based on the given information
 // the more information the less potential answers
@@ -72,14 +73,29 @@ std::list<std::string> getAnswer(std::map<char, int> lettersWithPosition, std::l
 // returns a list of 3 good next words
 std::list<std::string> nextWords(std::map<char, int> lettersWithPosition, std::list<char> lettersWithoutPosition, std::list<char> lettersNotInWord, std::list<std::string> wordlist)
 {
+    // filter out words with double letters to get the most out of the next word
+    std::list<std::string> filteredList{};
+    for (std::string w : wordlist)
+    {
+        std::set<char> letters{};
+        for (char c : w)
+        {
+            letters.insert(c);
+        }
+        if (letters.size() == w.size())
+        {
+            filteredList.push_back(w);
+        }
+    }
+
     // values for each letter
-    std::map<char, int> letterValues{createLetterCount(wordlist)};
+    std::map<char, int> letterValues{createLetterCount(filteredList)};
 
     // the three words with the highest value
     std::map<std::string, int> topWords{};
 
     // determine the value of each word and check if it is a current top 3
-    for (auto const &word : wordlist)
+    for (auto const &word : filteredList)
     {
         int value{0};
 
@@ -105,14 +121,14 @@ std::list<std::string> nextWords(std::map<char, int> lettersWithPosition, std::l
         while (topWords.size() > 3)
         {
             std::pair<std::string, int> smallest{"", INT_MAX};
-            for (auto const &[word, value] : topWords)
+            for (auto const &[key, value] : topWords)
             {
                 if (value < smallest.second)
                 {
-                    smallest = {word, value};
+                    smallest = {key, value};
                 }
             }
-            topWords.erase(word);
+            topWords.erase(smallest.first);
         }
     }
 
