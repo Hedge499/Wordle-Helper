@@ -28,7 +28,7 @@ std::ostream &operator<<(std::ostream &os, const std::map<char, int> &map)
 {
     for (auto const &[key, val] : map)
     {
-        os << "Letter " << key << " at the position " << val << ".\n";
+        os << "Letter " << key << " at position " << val << ".\n";
     }
     return os;
 }
@@ -40,15 +40,17 @@ std::map<char, int> inputLettersWithPosition()
 {
     std::map<char, int> newLetters{};
 
-    while (bool more{true})
+    bool more{true};
+    while (more)
     {
         // get input from user; char + int = new entrance; empty string ends input.
-        std::string input{""};
-        std::cout << "Enter a letter with its position split by a space. If you do not want to add another letter leave the input empty.\n";
-        std::cin >> input;
+        std::string input{};
+        int inputInt{};
+        std::cout << "Enter a letter with its position(0-4) split by a space. If you do not want to add another letter enter \"exit 0\".\n";
+        std::cin >> input >> inputInt;
 
         // validate input
-        if (input.empty())
+        if (input == "exit")
         {
             more = false;
         }
@@ -56,14 +58,7 @@ std::map<char, int> inputLettersWithPosition()
         {
             if (std::islower(input[0]))
             {
-                if (std::isdigit(input[2]))
-                {
-                    newLetters[input[0]] = input[2];
-                }
-                else
-                {
-                    std::cout << "split the input with an space and enter a digit as second part of the input.\n";
-                }
+                newLetters[input[0]] = inputInt;
             }
             else
             {
@@ -81,15 +76,16 @@ std::list<char> inputLetters()
 {
     std::list<char> newLetters{};
 
-    while (bool more{true})
+    bool more{true};
+    while (more)
     {
         // get input
         std::string input{};
-        std::cout << "Enter one Letter(only lowercase). Leave empty to end input of new Letters.\n";
+        std::cout << "Enter one Letter(only lowercase). Enter \"exit\" to end input of new Letters.\n";
         std::cin >> input;
 
         // validate input
-        if (input.empty())
+        if (input == "exit")
         {
             more = false;
         }
